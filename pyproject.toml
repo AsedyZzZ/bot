@@ -1,0 +1,85 @@
+[tool.mypy]
+python_version = "3.10"
+namespace_packages = false
+explicit_package_bases = false
+ignore_missing_imports = true
+follow_imports_for_stubs = false
+strict_optional = false
+strict = true
+
+show_error_context = true
+show_column_numbers = true
+show_error_codes = true
+pretty = true
+error_summary = true
+
+warn_no_return = true
+warn_return_any = true
+warn_unreachable = true
+disable_error_code = [
+    "attr-defined",
+    "has-type",
+    "misc",
+    "no-untyped-def",
+    "type-arg",
+    "no-any-return"
+]
+
+exclude = ["env", "venv"]
+
+[tool.ruff]
+exclude = [".git", "__pycache__", "venv", "env", "dist", "build", "migrations"]
+line-length = 120
+target-version = "py310"
+select = ["ALL"]
+ignore = [
+    "D100",
+    "D102",
+    "RUF002",
+    "RUF001",
+    "D107",
+    "D101",
+    "D103",
+    "D105",
+    "INP001",
+    "TCH001",
+    "INP001",
+    "D104",
+    "TCH002",
+    "TCH002",
+    "TCH002",
+    "TCH001",
+    "G004",
+    "ANN201",
+    "ANN201",
+    "ANN201",
+    "TCH002",
+    "TCH002",
+    "ANN201",
+    "ANN201",
+    "ANN201",
+    "INP001",
+    "ANN101",
+    "ANN204",
+    "ANN101",
+    "INP001",
+    "ANN101",
+    "ANN101",
+    "ANN101",
+    "S113",
+    "PLR2004",
+    "D104",
+    "INP001",
+    "TCH001",
+    "ANN101",
+    "ANN101",
+    "S113",
+    "PLR2004",
+    "TRY003",
+    "EM102",
+    "RET504",
+    "INP001",
+    "S105",
+    "INP001",
+    "INP001",
+]

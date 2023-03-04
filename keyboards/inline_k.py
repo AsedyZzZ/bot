@@ -1,12 +1,11 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-
 how_many_k = InlineKeyboardMarkup(row_width=5)
-but_1 = InlineKeyboardButton(text='1', callback_data='1')
-but_2 = InlineKeyboardButton(text='2', callback_data='2')
-but_3 = InlineKeyboardButton(text='3', callback_data='3')
-but_4 = InlineKeyboardButton(text='4', callback_data='4')
-but_5 = InlineKeyboardButton(text='5', callback_data='5')
+but_1 = InlineKeyboardButton(text="1", callback_data="1")
+but_2 = InlineKeyboardButton(text="2", callback_data="2")
+but_3 = InlineKeyboardButton(text="3", callback_data="3")
+but_4 = InlineKeyboardButton(text="4", callback_data="4")
+but_5 = InlineKeyboardButton(text="5", callback_data="5")
 how_many_k.add(but_1, but_2, but_3, but_4, but_5)
 
 pick_h_ikb = InlineKeyboardMarkup()
@@ -152,4 +151,4 @@ pick_h_ikb.add(b_tusk, b_mirana, b_rubick, b_tiny, b_primalbeast, b_crystalmaide
                b_dragonknight, b_omniknight, b_shadowshaman, b_spectre, b_wraithking, b_ancientapparition,
                b_shadowdemon,
                b_brewmaster, b_sandking, b_warlock, b_oracle, b_luna, b_trollwarlord, b_centaurwarrunner, b_chen,
-               b_bristleback, b_eldertitan, b_underlord, b_medusa, b_meepo, b_slark, )
+               b_bristleback, b_eldertitan, b_underlord, b_medusa, b_meepo, b_slark )
