@@ -32,6 +32,6 @@ jobs:
       run: |
        mypy --strict --cache-dir=/dev/null .
 
-    - name: pytest
+    - name: pytest tests
       run: |
         pytest
