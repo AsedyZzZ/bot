@@ -1,12 +1,14 @@
+import os
+
 from aiogram import Bot, Dispatcher, executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from dotenv import find_dotenv, load_dotenv
+
 from handlers import client, other
-import os
-from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
-bot = Bot(os.getenv('TOKEN'))
+bot = Bot(os.getenv("TOKEN"))
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=MemoryStorage())
 client.register_handlers_client(dp)
