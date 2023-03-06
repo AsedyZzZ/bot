@@ -29,6 +29,6 @@ class DotabuffHeroesParser(HeroesParser):
             raise ParserServiceError
         soup: BeautifulSoup = BeautifulSoup(markup=response.text, features="html.parser")
         table_body: Tag = soup.find("table").find("tbody")
-        heroes: tuple[str] = tuple(
+        heroes: tuple[str, ...] = tuple(
             str(row.find("a", class_="link-type-hero").text) for row in table_body.find_all("tr"))
         return [Hero(name=x) for x in heroes]
