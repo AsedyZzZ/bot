@@ -1,20 +1,16 @@
-name: Test pipeline with ruff, mypy and pytest
+name: Pipeline with ruff, mypy and pytest
 
 on:
   push:
     branches:
-      - '**'
-  pull_request:
-    branches: [ "master" ]
+      - '!master'
 
 permissions:
   contents: read
 
 jobs:
-  build:
-
+  test-code:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.11
@@ -31,7 +27,6 @@ jobs:
     - name: mypy
       run: |
        mypy --strict --cache-dir=/dev/null .
-
     - name: pytest tests
       run: |
         pytest
