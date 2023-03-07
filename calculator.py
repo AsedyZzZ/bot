@@ -11,5 +11,4 @@ class Calculator:
                 result[k].append(v)
 
         tuples = sorted(result.items(), key=lambda element: sum(element[1]), reverse=True)
-        print(tuples)
         return tuples
