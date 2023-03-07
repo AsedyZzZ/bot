@@ -13,6 +13,7 @@ from settings import heroes_parser
 heroes: list[hero.Hero] = heroes_parser.get_heroes()
 logging.warning(f"Heroes parsed: {len(heroes)} count")
 
+
 class FSM(StatesGroup):
     hero = State()
     result = State()
@@ -43,9 +44,9 @@ async def get_result(message: types.Message, state: FSMContext):
                 await state.finish()
                 return
             result.append(parser_result)
-        win_rate: dict[str, list[float]] = Calculator.calculate(result)
-        tuples = sorted(win_rate.items(), key=lambda element: sum(element[1]), reverse=True)
-    answer = "\n".join(f"{hero_name}: {win_rates}" for hero_name, win_rates in tuples[:10])
+        win_rate: list[tuple[str, list[float]]] = Calculator.calculate(result)
+    answer = "\n".join(f"{hero_name}: {win_rates} A.W.R..: {round(sum(win_rates) / len(win_rates), 2)}"
+                       for hero_name, win_rates in win_rate[:10])
     await message.reply(answer)
     await state.finish()
 
