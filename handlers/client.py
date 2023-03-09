@@ -7,7 +7,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 
 import hero
 from alias import NotFoundError, find_hero
-from calculator import Calculator
+from calculator import Calculator, Answer
 from settings import heroes_parser
 
 heroes: list[hero.Hero] = heroes_parser.get_heroes()
@@ -45,9 +45,8 @@ async def get_result(message: types.Message, state: FSMContext):
                 return
             result.append(parser_result)
         win_rate: list[tuple[str, list[float]]] = Calculator.calculate(result)
-    answer = "\n".join(f"{hero_name}: {win_rates} A.W.R..: {round(sum(win_rates) / len(win_rates), 2)}"
-                       for hero_name, win_rates in win_rate[:10])
-    await message.reply(answer)
+    answer: str = Answer.make_answers(win_rate, len(data["result"].split()))
+    await message.reply(answer, parse_mode="Markdown")
     await state.finish()
 
 
