@@ -11,7 +11,7 @@ class Calculator:
                 result[k].append(v)
 
         tuples = sorted(result.items(), key=lambda element: sum(element[1]), reverse=True)
-        return tuples
+        return tuples[:10]
 
 
 class Answer:
@@ -19,10 +19,10 @@ class Answer:
     def make_answers(lst: list[tuple[str, list[float]]], num_hero: int) -> str:
         if 1 < num_hero < 6:
             answer = "\n".join("*" + str(round(sum(win_rates) / len(win_rates), 2)) + "*" + f" {hero_name}: {win_rates}"
-                               for hero_name, win_rates in lst[:10])
+                               for hero_name, win_rates in lst)
 
         elif num_hero == 1:
-            answer = "\n".join(f"{hero_name}: *" + str(*win_rates) + "*" for hero_name, win_rates in lst[:10])
+            answer = "\n".join(f"{hero_name}: *" + str(*win_rates) + "*" for hero_name, win_rates in lst)
         else:
             answer = "*Вы указали больше чем 5 героев!*"
         return answer
