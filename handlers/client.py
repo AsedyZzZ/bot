@@ -45,7 +45,7 @@ async def get_result(message: types.Message, state: FSMContext):
                 return
             result.append(parser_result)
         win_rate: list[tuple[str, list[float]]] = Calculator.calculate(result)
-    answer: str = Answer.make_answers(win_rate, len(data["result"].split()))
+    answer: str = Answer.make_answers(win_rate, len(data["result"].split('\n')))
     await message.reply(answer, parse_mode="Markdown")
     await state.finish()
 
