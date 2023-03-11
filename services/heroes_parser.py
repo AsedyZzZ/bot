@@ -3,8 +3,8 @@ import abc
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from hero import Hero
-from user_agent import get_random_user_agent
+from domain.hero import Hero
+from services.user_agent import get_random_user_agent
 
 
 class ParserServiceError(Exception):

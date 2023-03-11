@@ -1,4 +1,4 @@
-from hero import Hero
+from domain.hero import Hero
 
 heroes_aliases = {
     "naga": "Naga Siren",

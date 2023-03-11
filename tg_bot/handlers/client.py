@@ -1,16 +1,16 @@
 import logging
-from parser import Parser, StatusCodeError
 
 from aiogram import Dispatcher, types
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 
-import hero
-from alias import NotFoundError, find_hero
-from calculator import Calculator
-from settings import heroes_parser
+from domain.hero import Hero
+from services.alias import NotFoundError, find_hero
+from services.calculator import Calculator
+from services.wr_parser import Parser, StatusCodeError
+from settings import HEROES_PARSER
 
-heroes: list[hero.Hero] = heroes_parser.get_heroes()
+heroes: list[Hero] = HEROES_PARSER.get_heroes()
 logging.warning(f"Heroes parsed: {len(heroes)} count")
 
 
@@ -40,7 +40,7 @@ async def run_stat(message: types.Message):
 async def get_result(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data["result"] = message.text
-        my_heroes: list[hero.Hero] = []
+        my_heroes: list[Hero] = []
 
         for i in data["result"].split("\n"):
             try:
