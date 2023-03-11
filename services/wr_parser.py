@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-from hero import Hero
+from domain.hero import Hero
 
 
 class StatusCodeError(Exception):

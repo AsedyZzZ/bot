@@ -5,7 +5,6 @@ class Calculator:
     @staticmethod
     def calculate(lst: list[dict[str, float]], top: int | None = None) -> list[tuple[str, list[float]]]:
         result = defaultdict(list)
-
         for el in lst:
             for k, v in el.items():
                 result[k].append(v)
